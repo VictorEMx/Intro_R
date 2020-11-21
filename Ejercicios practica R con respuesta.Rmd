@@ -1,0 +1,190 @@
+---
+title: Ejercicios de la introducción a R 
+author: Dr. Edmundo Molina, Victor Espinoza 
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+###1. Comandos básicos
+
+Concatenar los números 1, 10, 100 y 100, y los guarde como un vector llamado mi_vector. Cuando tecleamos mi_vector, nos devuelve el vector.
+
+```{r}
+mi_vector<-c(1,10,100,1000)
+mi_vector
+```
+
+Concatenar los números 11993 al 12644, y los guarde como un vector llamado mi_vector2. Cuando tecleamos mi_vector2, nos devuelve el vector. Determine la longitud de mi_vector2.
+
+```{r}
+mi_vector2<-c(11993:12644)
+length(mi_vector2)
+```
+
+Crear una matriz que llamaremos mi_matriz, de 4 columnas con mi_vector2. Para este caso asegúrate que la matriz se debe ir llenando por renglón. Determine el número de renglones que tiene la matriz.
+
+```{r}
+mi_matriz<-matrix (data=mi_vector2, ncol=4, byrow =TRUE)
+mi_matriz
+```
+
+Para mi_matriz, obtenga los valores al cuadrado de cada elemento de la matriz y posteriormente restele 144,312,169 a cada elemento. Determine la posición del valor 0 en la matriz.
+
+```{r}
+(mi_matriz^2)-144312169
+```
+
+Generar un vector de variables normales aleatorias (x), estableciendo una semilla de 555, con tamaño de muestra de 200. Determinar su media, varianza y desviación estándar. 
+
+```{r}
+set.seed(555)
+x<-rnorm (200)
+mean(x)
+var(x)
+sqrt(var(x))
+sd(x)
+```
+
+###2. Gráficas
+
+Use la función plot para crear un gráfico de dispersión de puntos donde tanto x como y son variables normales aleatorias, con una semilla de 555 y un tamaño de muestra de 200.
+
+```{r}
+set.seed(555)
+x<-rnorm (200)
+y<-rnorm (200)
+plot(x,y)
+plot(x,y,xlab="Este es el eje x",ylab="Este es el eje y",
+main="Plot de X vs Y")
+```
+
+En la variable seq_1 guarde la secuencia de 10 numeros entre 8 y 12
+
+```{r}
+seq_1<-seq (8, 12, length=10)
+seq_1
+```
+
+En la variable seq_2 guarde la secuencia de 101 numeros entre 100 y 99
+
+```{r}
+seq_2<-seq (100, 99, length=101)
+seq_2
+```
+
+En la variable seq_3 guarde la secuencia de a a z, donde a vale 5 y z vale 50
+
+```{r}
+a<-5
+z<-50
+seq_3<-a:z
+seq_3
+```
+
+###3. Indexación de datos
+
+Crear una matriz de nombre matriz_A de 5x5, con una secuencia de valores del 2 al 50 cada 2.
+
+```{r}
+A<-matrix(seq(2,50,2), 5, 5)
+A
+```
+
+Seleccionar individualmente en la matriz los valores de 10, 14, 22, 30 y 46.
+
+```{r}
+A[5,1]
+A[2,2]
+A[1,3]
+A[5,3]
+A[3,5]
+```
+
+Seleccionar en conjunto en la matriz los valores de 10,20,30,40,50.
+
+```{r}
+A[5,]
+```
+
+Seleccionar en conjunto en la matriz todos los valores, excepto 10,20,30,40,50.
+
+```{r}
+A[-5,]
+```
+
+###5. Resúmenes gráficos y numéricos adicionales
+
+Producir gráficos de dispersión de las variables cuantitativas, cylinders vs horsepower y cylinders vs acceleration. 
+
+```{r}
+setwd("C:/Users/User.HPPROBOOK640G1/Google Drive/DPP/Apoyo cursos/R para maestría")
+Auto<-read.csv("Auto.csv", header =T,na.strings ="?")
+Auto<-na.omit(Auto)
+plot(Auto$cylinders, Auto$horsepower)
+plot(Auto$cylinders, Auto$acceleration)
+```
+
+Vuelve a producir los gráficos, ahora considerando la variable cylinders como variable cualitativa, utilizando boxplots de color verde para horsepower y color morado para acceleration. Etiqueta los ejes conforme corresponda.
+
+```{r}
+attach (Auto)
+cylinders <-as.factor (cylinders)
+plot(cylinders , horsepower , col ="green", xlab=" cylinders ",
+ylab ="horsepower")
+plot(cylinders , acceleration , col ="purple", xlab=" cylinders ",
+ylab ="acceleration")
+```
+
+Trace un histograma para horsepower y otro para acceleration.
+
+```{r}
+hist(horsepower)
+hist(acceleration)
+```
+
+Producir el resumen de las variables horsepower y otro para acceleration.
+
+```{r}
+summary (horsepower)
+summary (acceleration)
+```
+
+###7. Escribir Funciones
+
+Construir una función que reciba dos números y que entregue la suma de estos números.
+
+```{r}
+#Forma 1
+suma <- function(x, y) {
+  resultado <- x + y
+  return(resultado)
+}
+
+#Forma 2
+suma <- function(x, y) {
+  return(x + y)
+}
+
+#Forma 3
+suma <- function(x, y) x + y
+
+suma(10,20)
+```
+
+Construya una función que reciba dos números existentes dentro del eje x y que entregue el punto médio de estos números. El resultado debe ser un mensaje en pantalla de la forma: "El punto medio de los valores a y b ingresados es __".
+
+Pista: La función cat sirve para concatenar objetos y presentarlos en pantalla.
+
+```{r}
+medio <- function(a, b) {
+  medio <- (a + b) / 2
+  cat("El punto medio de los valores", a, "y", b,
+      "ingresados es", medio)
+}
+
+medio(10,20)
+```
+
