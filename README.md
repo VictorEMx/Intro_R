@@ -1,3 +1,7 @@
+# Link de descarga de los videos
+
+https://we.tl/t-sPDEoIiGnN 
+
 # **Introducción a R.**
 *Dr. Edmundo Molina, Victor Espinoza* 
 
