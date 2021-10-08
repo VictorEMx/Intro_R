@@ -1,12 +1,13 @@
 ---
-title: Ejercicios de la introducción a R 
-author: Dr. Edmundo Molina, Victor Espinoza 
+title: Ejercicios de la introducción a R
+author: Dr. Edmundo Molina, Victor Espinoza
 output: html_document
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
+Aquí practicando 
 
 ###1. Comandos básicos
 
@@ -34,7 +35,7 @@ Para mi_matriz, obtenga los valores al cuadrado de cada elemento de la matriz y 
 
 ```
 
-Generar un vector de variables normales aleatorias (x), estableciendo una semilla de 555, con tamaño de muestra de 200. Determinar su media, varianza y desviación estándar. 
+Generar un vector de variables normales aleatorias (x), estableciendo una semilla de 555, con tamaño de muestra de 200. Determinar su media, varianza y desviación estándar.
 
 ```{r}
 
@@ -94,7 +95,7 @@ Seleccionar en conjunto en la matriz todos los valores, excepto 10,20,30,40,50.
 
 ###5. Resúmenes gráficos y numéricos adicionales
 
-Producir gráficos de dispersión de las variables cuantitativas, cylinders vs horsepower y cylinders vs acceleration. 
+Producir gráficos de dispersión de las variables cuantitativas, cylinders vs horsepower y cylinders vs acceleration.
 
 ```{r}
 
@@ -133,4 +134,3 @@ Pista: La función cat sirve para concatenar objetos y presentarlos en pantalla.
 ```{r}
 
 ```
-
